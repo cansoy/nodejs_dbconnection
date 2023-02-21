@@ -11,7 +11,11 @@ const dbconnect=async()=>{
     try {
         const connection=await mongoose.connect(uri,client)
         const readState=mongoose.connection.readyState
-        return true
+        if(readState==1){
+            return true }
+        else{
+            return false
+            }
     } 
     catch (error) {
         const readState=mongoose.connection.readyState
